@@ -3,7 +3,10 @@ version: "3.0"
 tasks:
   default:
     cmds:
+#      - task: swagger
       - |
         export CATEGORY_FILE_NAME=categories_data.json
         export DB_SERVICE_DIALECT=postgres
         export PORT=3000
+        
+        go run .

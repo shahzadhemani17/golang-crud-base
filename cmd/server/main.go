@@ -18,7 +18,7 @@ import (
 const (
 	DB_SERVICE_DIALECT = "DB_SERVICE_DIALECT"
 	CATEGORY_FILE_NAME = "CATEGORY_FILE_NAME"
-	Filename           = "categories_data.json"
+	//Filename           = "categories_data.json"
 )
 
 func main() {
@@ -47,7 +47,7 @@ func main() {
 	}))
 
 	// create article service
-	categoryRepo := category.NewCategoryRepositoryInFile(Filename)
+	categoryRepo := category.NewCategoryRepositoryInFile(os.Getenv(CATEGORY_FILE_NAME))
 	categoryService := category.NewCategoryService(categoryRepo)
 	category.Routes(router, categoryService)
 
@@ -80,7 +80,7 @@ func setupDatabase(connString string) (*gorm.DB, error) {
 	err := try.Do(func(attempt int) (bool, error) {
 		fmt.Printf("Connecting to db, attempt %v\n", attempt)
 		var err error
-		db, err = gorm.Open("postgres", connString)
+		db, err = gorm.Open(os.Getenv(DB_SERVICE_DIALECT), connString)
 		fmt.Printf("failed to connect database, attempt # %v", attempt)
 		fmt.Println(fmt.Errorf("error: %w", err))
 		if err == nil {
