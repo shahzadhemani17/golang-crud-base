@@ -2,11 +2,10 @@
 This is a simple go structured project for CRUD operations in Restful api's
 
 ## How to run the application
-You don't need much the run this application. It has the following installed on your computer:
+You don't need much to run this application. It requires the following installed on your computer:
 - Golang 1.15+
-- PostgreSQL
 
-After installing postgres build the docker container:
+Build the docker container for postgreSQL:
 ```
 docker-compose up -d
 ```
