@@ -18,7 +18,6 @@ import (
 const (
 	DB_SERVICE_DIALECT = "DB_SERVICE_DIALECT"
 	CATEGORY_FILE_NAME = "CATEGORY_FILE_NAME"
-	//Filename           = "categories_data.json"
 )
 
 func main() {
